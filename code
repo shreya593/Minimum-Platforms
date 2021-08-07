@@ -1,0 +1,22 @@
+https://practice.geeksforgeeks.org/problems/n-meetings-in-one-room-1587115620/1#
+
+int maxMeetings(int start[], int end[], int n)
+    {
+        // Your code here
+        long long c=0;
+         vector<pair<long long ,long long>>g;
+         for(long long i=0; i<n; i++){
+             g.push_back({end[i],start[i]});
+         }
+         sort(g.begin(),g.end());
+         long long en = g[0].first;
+         for(long long i=1; i<n; i++){
+
+           if(g[i].second>en){
+               en = g[i].first;
+               c++;
+           } 
+             
+         }
+         return c+1;
+    }
